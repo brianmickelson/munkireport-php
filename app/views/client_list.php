@@ -22,6 +22,7 @@
         <th>User      </th>
         <th>IP        </th>
 		<th>OS        </th>
+		<th>Asset Tag </th>
         <th>Latest Run</th>
 		<th>Manifest</th>
       </tr>
@@ -40,6 +41,7 @@
 		<td><?=$client->console_user?></td>
 		<td><?=$client->remote_ip?></td>
 		<td><?=isset($client->report_plist['MachineInfo']['os_vers']) ? $client->report_plist['MachineInfo']['os_vers'] : '?'?> <?=isset($client->report_plist['MachineInfo']['arch']) ? $client->report_plist['MachineInfo']['arch'] : '?'?></td>
+		<td><?=isset($client->report_plist['MachineInfo']['ARDInfo1']) ? $client->report_plist['MachineInfo']['ARDInfo1'] : '?'?></td>
 		<td>
 			<?=$client->timestamp?>
 			<?=$client->runtype?>

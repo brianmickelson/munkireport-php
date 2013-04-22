@@ -31,6 +31,12 @@ $SYSTEM_PROFILER -xml SPNetworkDataType SPHardwareDataType > "$PROFILEPLIST"
 $PLISTBUDDY -c "Add :MachineInfo:SystemProfile array" "$TMPPLIST"
 $PLISTBUDDY -c "Merge $PROFILEPLIST :MachineInfo:SystemProfile" "$TMPPLIST"
 
+# Get ARD Computer Info fields
+i=1; while [ $i -lt 5 ]; do
+	$PLISTBUDDY -c "Add :MachineInfo:ARDInfo$i string "$(defaults read /Library/Preferences/com.apple.RemoteDesktop Text$i)"" "$TMPPLIST"
+	i=$[$i+1]
+done
+
 # Encode report.
 REPORTTMP=`$MKTEMP -t postflight`
 echo -n 'report=' > "$REPORTTMP"
