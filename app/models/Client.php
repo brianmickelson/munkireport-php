@@ -7,6 +7,9 @@ class Client extends Model {
 		$this->rs['id'] = 0;
 		$this->rs['name'] = '';
 		$this->rs['serial'] = $serial; $this->rt['serial'] = 'VARCHAR(255) UNIQUE';
+		$this->rs['ethernet'] = '';
+		$this->rs['ethernet2'] = '';
+		$this->rs['wireless'] = '';
 		$this->rs['remote_ip'] = '';
 		$this->rs['timestamp'] = '';
 		$this->rs['runtype'] = '';
